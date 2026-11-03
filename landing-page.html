@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="" href="landing page/Flow-Desk_Logo Icon.svg">
+  <title>FlowDesk | Project Management Landing Page</title>
+
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --surface: #ffffff;
+      --surface-soft: #eef3ff;
+      --primary: #0345D9;
+      --primary-dark: #021549;
+      --accent: #43E4BB;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --dark: #07111f;
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --shadow: 0 16px 60px rgba(3, 69, 217, 0.6);
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 76px;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .section-header {
+      max-width: 680px;
+      margin-bottom: 44px;
+    }
+
+    .section-header.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .problem-section {
+      overflow: hidden;
+    }
+
+    .problem-intro {
+      position: relative;
+      padding-bottom: 120px;
+      margin-bottom: 20px;
+    }
+
+    .problem-scatter {
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: 50%;
+      max-width: 1180px;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .problem-section .section-header {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin-bottom: 0;
+    }
+
+    .problem-section .section-header h2,
+    .problem-section .section-header p {
+      text-wrap: balance;
+    }
+
+    .problem-section .section-header p {
+      max-width: 540px;
+      margin-inline: auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--primary-dark)
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 4.0rem);
+      max-width: 720px;
+      margin-bottom: 24px;
+      color: var(--primary-dark)
+    }
+
+    .hero-headline-line {
+      display: block;
+      overflow: hidden;
+      padding-bottom: 0.1em;
+    }
+
+    .hero-headline-line span {
+      display: block;
+      opacity: 0;
+      transform: translateY(110%);
+      animation: headline-line-rise 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .hero-headline-line:nth-child(2) span {
+      animation-delay: 0.1s;
+    }
+
+    .hero-headline-line:nth-child(3) span {
+      animation-delay: 0.2s;
+    }
+
+    .hero-headline-line:nth-child(4) span {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes headline-line-rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .large-text {
+      font-size: 1.2rem;
+      max-width: 590px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 14px 30px rgba(63, 92, 255, 0.28);
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn.secondary {
+      background: white;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn.secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* NAV */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(246, 248, 252, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .logo-mark {
+      height: 30px;
+    }
+
+    .logo-mark img {
+      height: 30px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 6px 0;
+      transition: color 220ms ease, transform 220ms ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 1px;
+      left: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 86px 0 72px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -260px;
+      right: -220px;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(63, 92, 255, 0.22), transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      z-index: 2;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary-dark);
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .stat {
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .stat img {
+      margin-bottom: 5px;
+    }
+
+    /* DASHBOARD MOCKUP */
+
+    .dashboard-embed {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .dashboard-embed img {
+      width: 100%;
+      height: auto;
+    }
+
+    .browser-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      height: 44px;
+      padding: 0 18px;
+      border-bottom: 1px solid var(--border);
+      background: #fbfcff;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d1d5db;
+    }
+
+    .dot:nth-child(1) {
+      background: #ff6b6b;
+    }
+
+    .dot:nth-child(2) {
+      background: #ffc75f;
+    }
+
+    .dot:nth-child(3) {
+      background: #28c76f;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      min-height: 430px;
+    }
+
+    .sidebar {
+      padding: 22px 16px;
+      background: #f8faff;
+      border-right: 1px solid var(--border);
+    }
+
+    .side-pill {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 12px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      color: #64748b;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .side-pill.active {
+      background: #e8edff;
+      color: var(--primary);
+    }
+
+    .side-icon {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .dash-main {
+      padding: 22px;
+    }
+
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .dash-title {
+      width: 42%;
+      height: 18px;
+      border-radius: 999px;
+      background: #111827;
+    }
+
+    .avatars {
+      display: flex;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      margin-left: -8px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #dbe4ff, #18c7a6);
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .ui-panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .panel-label {
+      margin-bottom: 14px;
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .task {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .task:last-child {
+      border-bottom: 0;
+    }
+
+    .check {
+      width: 17px;
+      height: 17px;
+      border-radius: 6px;
+      background: #e8edff;
+    }
+
+    .task-line {
+      flex: 1;
+      height: 10px;
+      border-radius: 999px;
+      background: #e5e7eb;
+    }
+
+    .task-line.short {
+      max-width: 70%;
+    }
+
+    .tag {
+      width: 46px;
+      height: 20px;
+      border-radius: 999px;
+      background: #dcfce7;
+    }
+
+    .progress-card {
+      margin-bottom: 18px;
+    }
+
+    .progress-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .progress-bar {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #eef2f7;
+    }
+
+    .progress-fill {
+      width: 72%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    .chart {
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      height: 118px;
+      padding-top: 10px;
+    }
+
+    .bar {
+      flex: 1;
+      min-width: 12px;
+      border-radius: 999px 999px 0 0;
+      background: #dbe4ff;
+    }
+
+    .bar:nth-child(2) {
+      height: 72%;
+    }
+
+    .bar:nth-child(3) {
+      height: 48%;
+    }
+
+    .bar:nth-child(4) {
+      height: 86%;
+      background: var(--primary);
+    }
+
+    .bar:nth-child(5) {
+      height: 60%;
+    }
+
+    .bar:nth-child(6) {
+      height: 78%;
+      background: var(--accent);
+    }
+
+    .bar:nth-child(1) {
+      height: 42%;
+    }
+
+    /* LOGOS */
+
+    .logo-strip {
+      padding: 34px 0;
+      border-block: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .logo-strip-inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+
+    .trusted {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .company-logos {
+      --logo-gap: 28px;
+      --logo-offset: 14px;
+      width: 556px;
+      max-width: 100%;
+      overflow: hidden;
+      margin-left: auto;
+      color: #9ca3af;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .logo-track {
+      display: flex;
+      align-items: center;
+      gap: var(--logo-gap);
+      width: max-content;
+      animation: logo-scroll 18s linear infinite;
+    }
+
+    .logo-set {
+      display: flex;
+      align-items: center;
+      gap: var(--logo-gap);
+      flex: 0 0 auto;
+    }
+
+    .company-logos img {
+      flex: 0 0 118px;
+      width: 118px;
+      max-width: 118px;
+      height: 30px;
+      max-height: 30px;
+      object-fit: contain;
+    }
+
+    @keyframes logo-scroll {
+      to {
+        transform: translateX(calc(-50% - var(--logo-offset)));
+      }
+    }
+
+    /* CARDS */
+
+    .card-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .three-cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    #features {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    #features::before,
+    #features::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -18%;
+      bottom: 0;
+      left: -18%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    #features::before {
+      background:
+        linear-gradient(90deg, transparent, rgba(3, 69, 217, 0.3), transparent),
+        linear-gradient(90deg, transparent, rgba(67, 228, 187, 0.3), transparent),
+        linear-gradient(90deg, transparent, rgba(3, 69, 217, 0.22), transparent),
+        linear-gradient(90deg, transparent, rgba(67, 228, 187, 0.22), transparent),
+        linear-gradient(90deg, transparent, rgba(3, 69, 217, 0.18), transparent),
+        linear-gradient(90deg, transparent, rgba(67, 228, 187, 0.18), transparent),
+        linear-gradient(90deg, transparent, rgba(3, 69, 217, 0.16), transparent),
+        linear-gradient(90deg, transparent, rgba(67, 228, 187, 0.16), transparent),
+        linear-gradient(90deg, transparent, rgba(3, 69, 217, 0.14), transparent);
+      background-repeat: no-repeat;
+      background-size: 42% 2px, 64% 2px, 28% 2px, 52% 2px, 70% 2px, 36% 2px, 58% 2px, 44% 2px, 30% 2px;
+      background-position: -72% 8%, -58% 18%, -42% 28%, -66% 39%, -36% 50%, -78% 61%, -52% 72%, -30% 84%, -86% 94%;
+      transform: translateX(-36px);
+      filter: blur(0.15px);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+
+    #features::after {
+      background:
+        linear-gradient(90deg, transparent, rgba(67, 228, 187, 0.42), rgba(3, 69, 217, 0.24), transparent),
+        linear-gradient(90deg, transparent, rgba(3, 69, 217, 0.34), rgba(67, 228, 187, 0.22), transparent),
+        linear-gradient(90deg, transparent, rgba(67, 228, 187, 0.34), rgba(3, 69, 217, 0.18), transparent),
+        linear-gradient(90deg, transparent, rgba(3, 69, 217, 0.28), rgba(67, 228, 187, 0.18), transparent);
+      background-size: 34% 3px, 48% 2px, 26% 2px, 40% 2px;
+      background-position: -44% 16%, -62% 35%, -36% 68%, -78% 88%;
+      background-repeat: no-repeat;
+    }
+
+    #features.lines-animated::before {
+      animation: feature-line-field 3500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    #features.lines-animated::after {
+      animation: feature-line-sweep 2600ms cubic-bezier(0.16, 1, 0.3, 1) 160ms forwards;
+    }
+
+    #features > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes feature-line-field {
+      0% {
+        opacity: 0;
+        transform: translateX(-36px);
+        background-position: -72% 8%, -58% 15%, -42% 28%, -66% 39%, -36% 50%, -78% 61%, -52% 72%, -30% 84%, -86% 94%;
+      }
+
+      22% {
+        opacity: 0.9;
+      }
+
+      66% {
+        opacity: 0.88;
+      }
+
+      88% {
+        opacity: 0.72;
+        background-position: 112% 8%, 104% 15%, 126% 28%, 116% 39%, 98% 50%, 132% 61%, 155% 72%, 122% 84%, 140% 94%;
+      }
+
+      100% {
+        opacity: 0.82;
+        transform: translateX(18px);
+        background-position: 117% 8%, 109% 15%, 131% 28%, 121% 39%, 103% 50%, 137% 61%, 160% 72%, 127% 84%, 145% 94%;
+        background-size: 42% 3px, 85% 3px, 28% 3px, 52% 3px, 85% 3px, 36% 3px, 58% 3px, 44% 3px, 30% 3px;
+      }
+    }
+
+    @keyframes feature-line-sweep {
+      0% {
+        opacity: 0;
+        background-position: -44% 18%, -62% 35%, -36% 68%, -78% 95%;
+      }
+
+      24% {
+        opacity: 1;
+      }
+
+      86% {
+        background-position: 116% 18%, 104% 35%, 128% 68%, 98% 95%;
+      }
+
+      100% {
+        opacity: 1;
+        background-position: 121% 18%, 109% 35%, 133% 68%, 103% 95%;
+      }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.04);
+      transition:
+        transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 320ms ease;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      background: var(--surface-soft);
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .icon img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    }
+
+    /* SHOWCASE */
+
+    .showcase {
+      background: var(--dark);
+      color: white;
+    }
+
+    .showcase p,
+    .showcase .eyebrow {
+      color: #aab7cf;
+    }
+
+    .showcase .eyebrow::before {
+      background: var(--accent);
+    }
+
+    .showcase h2 {
+      color: white;
+    }
+
+    .showcase-mockup {
+      line-height: 0;
+    }
+
+    .showcase-mockup img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* PROCESS */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      position: relative;
+      padding: 28px;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .steps.reveal-ready .step {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .steps.steps-visible .step {
+      animation: step-fade-in 680ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .steps.steps-visible .step:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .steps.steps-visible .step:nth-child(3) {
+      animation-delay: 0.24s;
+    }
+
+    .steps.steps-visible .step:nth-child(4) {
+      animation-delay: 0.36s;
+    }
+
+    @keyframes step-fade-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-weight: 900;
+    }
+
+    /* PRICING */
+
+    .pricing-card {
+      position: relative;
+      padding: 32px;
+    }
+
+    .pricing-card.highlight {
+      border: 2px solid var(--primary);
+      box-shadow: var(--shadow);
+      transform: translateY(-12px);
+    }
+
+    .badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .price {
+      margin: 24px 0 6px;
+      color: var(--text);
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .price span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .pricing-list {
+      display: grid;
+      gap: 12px;
+      margin: 26px 0;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .pricing-list li::before {
+      content: "✓";
+      margin-right: 10px;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    #pricing {
+      padding: 40px 0;
+    }
+
+    #pricing .container {
+      border: 4px solid var(--primary);
+      border-radius: 30px;
+      padding: 40px;
+    }
+
+    /* TESTIMONIALS */
+
+    .quote {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .person-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #dbe4ff, #18c7a6);
+      overflow: hidden;
+    }
+
+    .person-avatar img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .person strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .person span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 92px 0;
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      color: white;
+    }
+
+    .cta p {
+      max-width: 570px;
+      margin: 0 auto;
+      color: #aab7cf;
+    }
+
+    .cta .btn-row {
+      justify-content: center;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 30px 0;
+      background: var(--dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #aab7cf;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1219px) {
+      .problem-intro {
+        background: url("landing page/ScatterGraphic less1200px.svg") center bottom / min(100%, 1000px) auto no-repeat;
+      }
+
+      .problem-scatter {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-card.highlight {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .problem-scatter {
+        display: none;
+      }
+
+      .problem-intro {
+        background: none;
+      }
+
+      .problem-section .section-header {
+        max-width: 560px;
+      }
+
+      #features .section-header {
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        align-items: center;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .dash-grid,
+      .three-cols,
+      .feature-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-strip-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .company-logos {
+        --logo-gap: 18px;
+        --logo-offset: 9px;
+        width: min(100%, 526px);
+        margin-left: 0;
+      }
+
+      .logo-track,
+      .logo-set {
+        gap: var(--logo-gap);
+      }
+
+      .company-logos img {
+        flex-basis: 118px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .card,
+      .nav-links a,
+      .nav-links a::after {
+        transition: none;
+      }
+
+      .card:hover,
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        transform: none;
+      }
+
+      .pricing-card.highlight,
+      .pricing-card.highlight:hover {
+        transform: none;
+      }
+
+      .hero-headline-line span {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+
+      #features.lines-animated::before,
+      #features.lines-animated::after {
+        animation: none;
+        transform: none;
+      }
+
+      #features.lines-animated::before {
+        opacity: 0.82;
+        background-position: 70% 8%, 48% 18%, 82% 28%, 58% 39%, 32% 50%, 88% 61%, 54% 72%, 74% 84%, 94% 94%;
+      }
+
+      #features.lines-animated::after {
+        opacity: 0.9;
+        background-position: 64% 16%, 76% 42%, 88% 68%, 52% 88%;
+      }
+
+      .steps.reveal-ready .step,
+      .steps.steps-visible .step {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">
+            <img src="landing page/Flow-Desk_Logo Full.svg">
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Reviews</a>
+      </nav>
+
+      <a href="#" class="btn secondary">Start free</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 aria-label="Manage projects, tasks, and deadlines in one workspace.">
+            <span class="hero-headline-line" aria-hidden="true"><span>Manage every</span></span>
+            <span class="hero-headline-line" aria-hidden="true"><span>project, task,</span></span>
+            <span class="hero-headline-line" aria-hidden="true"><span>and deadline in</span></span>
+            <span class="hero-headline-line" aria-hidden="true"><span>one workspace.</span></span>
+          </h1>
+
+          <p class="large-text">
+            FlowDesk helps teams organize work, track progress, and stay aligned
+            without switching between tools.
+          </p>
+
+          <div class="btn-row">
+            <a href="#" class="btn primary">Start free</a>
+            <a href="#" class="btn secondary">View demo</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <img src="landing page/Icons/stat-icon1.svg" width="40px">
+              <strong>34%</strong>
+              <span>faster delivery</span>
+            </div>
+
+            <div class="stat">
+              <img src="landing page/Icons/stat-icon2.svg" width="40px">
+              <strong>12,400+</strong>
+              <span>teams onboarded</span>
+            </div>
+
+            <div class="stat">
+              <img src="landing page/Icons/stat-icon3.svg" width="40px">
+              <strong>4.9/5</strong>
+              <span>from 2,100+ reviews</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-embed">
+          <img src="landing page/Dashboard Preview Hero.png">
+        </div>
+      </div>
+    </section>
+
+    <section class="logo-strip">
+      <div class="container logo-strip-inner">
+        <p class="trusted">Trusted by growing teams</p>
+
+        <div class="company-logos">
+          <div class="logo-track">
+            <div class="logo-set">
+              <img src="landing page/Fake Logos/Nova Lab.svg" alt="Nova Lab">
+              <img src="landing page/Fake Logos/BrightPath.svg" alt="BrightPath">
+              <img src="landing page/Fake Logos/Vertex.svg" alt="Vertex">
+              <img src="landing page/Fake Logos/Cloudcore.svg" alt="Cloudcore">
+              <img src="landing page/Fake Logos/StudioNorth.svg" alt="StudioNorth">
+            </div>
+
+            <div class="logo-set" aria-hidden="true">
+              <img src="landing page/Fake Logos/Nova Lab.svg" alt="">
+              <img src="landing page/Fake Logos/BrightPath.svg" alt="">
+              <img src="landing page/Fake Logos/Vertex.svg" alt="">
+              <img src="landing page/Fake Logos/Cloudcore.svg" alt="">
+              <img src="landing page/Fake Logos/StudioNorth.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="container">
+        <div class="problem-intro">
+          <img
+            class="problem-scatter"
+            src="landing page/ScatterGraphic.svg"
+            alt=""
+            aria-hidden="true"
+          />
+
+          <div class="section-header center">
+            <span class="eyebrow">The problem</span>
+            <h2>Work gets messy when everything is scattered.</h2>
+            <p>
+              FlowDesk gives teams one clear place to plan work, assign tasks,
+              and keep every deadline visible.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-grid three-cols">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Missed deadlines</h3>
+            <p>Tasks get buried across chats, emails, and spreadsheets.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>No clear ownership</h3>
+            <p>Teams lose time figuring out who is responsible for each task.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Too many tools</h3>
+            <p>Switching between apps slows down simple work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Features</span>
+          <h2>Everything your team needs to move faster.</h2>
+          <p>
+            Build better workflows with task boards, timelines, files,
+            approvals, and reporting in one clean interface.
+          </p>
+        </div>
+
+        <div class="card-grid feature-grid">
+          <article class="card">
+            <div class="icon">
+              <img src="landing page/Icons/Task Board Icon.svg" alt="" aria-hidden="true">
+            </div>
+            <h3>Task boards</h3>
+            <p>Organize work by project, status, priority, or team.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <img src="landing page/Icons/Team Timelines Icon.svg" alt="" aria-hidden="true">
+            </div>
+            <h3>Team timelines</h3>
+            <p>See deadlines, milestones, and blockers in one view.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <img src="landing page/Icons/File Sharing Icon.svg" alt="" aria-hidden="true">
+            </div>
+            <h3>File sharing</h3>
+            <p>Keep project files connected to the right tasks.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <img src="landing page/Icons/Notification Icon.svg" alt="" aria-hidden="true">
+            </div>
+            <h3>Smart notifications</h3>
+            <p>Get important updates without constant meetings.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <img src="landing page/Icons/Progress Icon.svg" alt="" aria-hidden="true">
+            </div>
+            <h3>Progress tracking</h3>
+            <p>Measure what is finished, delayed, or at risk.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <img src="landing page/Icons/Client Approval Icon.svg" alt="" aria-hidden="true">
+            </div>
+            <h3>Client approvals</h3>
+            <p>Share selected work with clients for faster feedback.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Dashboard preview</span>
+          <h2>A clearer view of every project.</h2>
+          <p>
+            Give managers the visibility they need without making the workflow
+            feel heavy for the team.
+          </p>
+        </div>
+
+        <div class="showcase-mockup">
+          <img
+            src="landing page/Dashboard Preview Dark Mode.svg"
+            alt="FlowDesk dashboard shown in dark mode"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Workflow</span>
+          <h2>From planning to delivery in four steps.</h2>
+          <p>
+            FlowDesk keeps the process simple, visible, and easy to repeat.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Create a project</h3>
+            <p>Set the goal, timeline, team, and project requirements.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Assign tasks</h3>
+            <p>Give every task an owner, priority, and due date.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Track progress</h3>
+            <p>See what is done, blocked, delayed, or ready for review.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">4</div>
+            <h3>Deliver on time</h3>
+            <p>Use approvals and reports to finish with fewer surprises.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Pricing</span>
+          <h2>Plans for teams of every size.</h2>
+          <p>
+            Start simple, then upgrade when your team needs more control.
+          </p>
+        </div>
+
+        <div class="card-grid three-cols">
+          <article class="card pricing-card">
+            <h3>Free</h3>
+            <p>For individuals and small projects.</p>
+
+            <div class="price">$0 <span>/ month</span></div>
+
+            <ul class="pricing-list">
+              <li>3 active projects</li>
+              <li>Basic task boards</li>
+              <li>File attachments</li>
+              <li>Weekly reminders</li>
+            </ul>
+
+            <a href="#" class="btn secondary">Get started</a>
+          </article>
+
+          <article class="card pricing-card highlight">
+            <span class="badge">Popular</span>
+            <h3>Pro</h3>
+            <p>For growing teams that need better visibility.</p>
+
+            <div class="price">$12 <span>/ user</span></div>
+
+            <ul class="pricing-list">
+              <li>Unlimited projects</li>
+              <li>Team timelines</li>
+              <li>Advanced reporting</li>
+              <li>Client approvals</li>
+            </ul>
+
+            <a href="#" class="btn primary">Start Pro</a>
+          </article>
+
+          <article class="card pricing-card">
+            <h3>Business</h3>
+            <p>For companies that need control and reporting.</p>
+
+            <div class="price">$29 <span>/ user</span></div>
+
+            <ul class="pricing-list">
+              <li>Custom permissions</li>
+              <li>Priority support</li>
+              <li>Project templates</li>
+              <li>Admin reporting</li>
+            </ul>
+
+            <a href="#" class="btn secondary">Contact sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Testimonials</span>
+          <h2>Teams work better with FlowDesk.</h2>
+        </div>
+
+        <div class="card-grid three-cols">
+          <article class="card">
+            <p class="quote">
+              “FlowDesk helped our team replace scattered spreadsheets with one workflow.”
+            </p>
+
+            <div class="person">
+              <span class="person-avatar"><img src="landing page/profile 2.jpg"></span>
+              <div>
+                <strong>Maya Collins</strong>
+                <span>Operations Lead</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <p class="quote">
+              “Our weekly meetings are shorter because everyone can see project
+              status instantly.”
+            </p>
+
+            <div class="person">
+              <span class="person-avatar"><img src="landing page/profile 1.png"></span>
+              <div>
+                <strong>Daniel Reed</strong>
+                <span>Product Manager</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <p class="quote">
+              “It gives managers a clean view without making the team feel
+              micromanaged.”
+            </p>
+
+            <div class="person">
+              <div class="person-avatar"><img src="landing page/profile 3.jpg"></div>
+              <div>
+                <strong>Sarah Kim</strong>
+                <span>Creative Director</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Bring your team’s work into focus.</h2>
+        <p>
+          Start organizing projects, tasks, and deadlines in one simple
+          workspace.
+        </p>
+
+        <div class="btn-row">
+          <a href="#" class="btn primary">Start free</a>
+          <a href="#" class="btn secondary">View demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 FlowDesk. All rights reserved.</span>
+      <span>Landing page concept by Guillermo Estrada.</span>
+    </div>
+  </footer>
+  <script>
+    const featuresSection = document.querySelector("#features");
+
+    if (featuresSection) {
+      const playFeatureLines = () => {
+        featuresSection.classList.add("lines-animated");
+      };
+
+      if ("IntersectionObserver" in window) {
+        const featureObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                playFeatureLines();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.35 }
+        );
+
+        featureObserver.observe(featuresSection);
+      } else {
+        playFeatureLines();
+      }
+    }
+
+    const workflowSteps = document.querySelector(".steps");
+
+    if (workflowSteps) {
+      workflowSteps.classList.add("reveal-ready");
+
+      const revealWorkflowSteps = () => {
+        workflowSteps.classList.add("steps-visible");
+      };
+
+      if ("IntersectionObserver" in window) {
+        const stepsObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                revealWorkflowSteps();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.28 }
+        );
+
+        stepsObserver.observe(workflowSteps);
+      } else {
+        revealWorkflowSteps();
+      }
+    }
+  </script>
+</body>
+</html>

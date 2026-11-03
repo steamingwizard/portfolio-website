@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Creator: CorelDRAW (OEM Version) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="105px" height="86px" version="1.0" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 93.92 76.4"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil1 {fill:url(#id0);fill-rule:nonzero}
+    .fil2 {fill:url(#id1);fill-rule:nonzero}
+    .fil0 {fill:url(#id2);fill-rule:nonzero}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="0" y1="27.72" x2="71.35" y2="27.72">
+   <stop offset="0" style="stop-opacity:1; stop-color:#36DEA6"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#1463FD"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="20.51" y1="37.94" x2="63.62" y2="37.94">
+  </linearGradient>
+  <linearGradient id="id2" gradientUnits="userSpaceOnUse" x1="13.78" y1="38.2" x2="93.92" y2="38.2">
+   <stop offset="0" style="stop-opacity:1; stop-color:#5E56FB"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#0F64FD"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2832235552656">
+   <path class="fil0" d="M13.78 76.4l8.29 -17.93c1.91,-4.13 4.86,-7.48 8.51,-9.81 3.66,-2.34 7.93,-3.62 12.46,-3.62l20.67 0c4.07,0 7.77,-1.66 10.45,-4.35 2.68,-2.68 4.35,-6.38 4.35,-10.45l0 -0.02c0,-4.07 -1.67,-7.77 -4.35,-10.46 -2.68,-2.68 -6.38,-4.34 -10.45,-4.34l-39.97 0 8.9 -15.42 31.07 0c8.32,0 15.88,3.39 21.35,8.86 5.47,5.48 8.86,13.03 8.86,21.36l0 0.02c0,8.33 -3.39,15.88 -8.86,21.35 -5.47,5.48 -13.03,8.87 -21.35,8.87l-20.67 0c-1.61,0 -3.05,0.4 -4.21,1.14 -1.16,0.74 -2.13,1.87 -2.79,3.32l-5.31 11.48 -16.95 0z"/>
+   <rect class="fil1" y="23.72" width="71.35" height="8.01" rx="8.3" ry="4.01"/>
+   <rect class="fil2" x="20.51" y="36.38" width="43.11" height="3.12" rx="5.02" ry="1.56"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guillermo Estrada | Graphic Designer</title>
+  <link rel="icon" type="image/svg+xml" href="Images/favicon.svg" />
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-light: #20242d;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --line: #2e3440;
+      --accent: #cdedff;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      background: #2a2f3a;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(15, 17, 21, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .logo img {
+        background: none;
+        fill: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 96px 0 72px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      scale: 1.1;
+      background:
+        linear-gradient(to right, rgba(15, 17, 21, 1) 0%, rgba(15, 17, 21, 0.6) 60%, rgba(15, 17, 21, 0) 100%),
+        url("Images/Work Pictures/surf 3.png") right center / cover no-repeat var(--bg);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 0.95;
+      margin: 0 0 24px;
+      letter-spacing: -0.06em;
+      max-width: 900px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #d1d5db;
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .text-white {
+      color: #fff !important;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #07110d;
+      border-color: var(--accent);
+    }
+
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 72px;
+    }
+
+    .proof-item {
+      background: var(--panel);
+      padding: 22px;
+    }
+
+    .proof-item strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      max-width: 460px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category-card,
+    .project-card,
+    .skill-card,
+    .case-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .category-card {
+      padding: 22px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .category-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-image {
+      background:
+        linear-gradient(135deg, #2a2f3a, #161a22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      min-height: 300px;
+      max-height: 650px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      min-height: 300px;
+      max-height: 650px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 18px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .project-content p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--accent);
+      border: 1px solid rgba(253, 253, 253, 0.3);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .case-study {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .case-panel {
+      padding: 28px;
+    }
+
+    .case-panel h3 {
+      margin-top: 0;
+      font-size: 26px;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-list div {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    .case-list strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .case-list span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 24px;
+    }
+
+    .skill-card h3 {
+      margin-top: 0;
+    }
+
+    .skill-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .about-photo {
+      aspect-ratio: 1;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, #252a35, #151820);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .contact-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .contact-panel h2 {
+      margin: 0 0 10px;
+      font-size: 36px;
+      letter-spacing: -0.04em;
+    }
+
+    .contact-panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .proof,
+      .category-grid,
+      .project-grid,
+      .skills-grid,
+      .case-study,
+      .about,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .contact-panel {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo"><img src="images/Main Headline comb.svg" width="160px"></a>
+
+      <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow text-white">GRAPHIC DESIGN & PRINT PRODUCTION</div>
+
+        <h1>From design to production.</h1>
+
+        <p>
+          I create graphics for print, signage, digital media, and physical applications.
+        </p>
+
+        <div class="buttons">
+          <a href="#work" class="btn primary">View Portfolio</a>
+          <a href="#contact" class="btn">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="eyebrow">
+          Selected Work
+        </div>
+
+        <div class="project-grid">
+            <article class="project-card">
+                <div class="project-image"><img src="images/Work Pictures/Onyx Monolitos/Onyx Monolitos_1v2.png"></div>
+                    <div class="project-content">
+                    <h3>Dreams Onyx Signage</h3>
+                    <p>Directional signs, room labels, acrylic pieces, and production-ready files.</p>
+                    <div class="tags">
+                        <span class="tag">Signage</span>
+                        <span class="tag">CNC</span>
+                        <span class="tag">Production</span>
+                    </div>
+                </div>
+            </article>
+
+          <article class="project-card">
+            <div class="project-image"><img src="images/Work Pictures/Pool Planet/poolplanetfixed2.png"></div>
+            <div class="project-content">
+              <h3>Print Production Work</h3>
+              <p>Banners, vinyl, UV prints, and large-format artwork prepared for output.</p>
+              <div class="tags">
+                <span class="tag">Prepress</span>
+                <span class="tag">Print</span>
+                <span class="tag">Large Format</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image"><img src="images/Work Pictures/Breathless Monolitos/Breathless_Monolitos_1v4.png"></div>
+            <div class="project-content">
+              <h3>Breathless Punta Cana Signage</h3>
+              <p>Directional signs, room labels, acrylic pieces, and production-ready files.</p>
+              <div class="tags">
+                <span class="tag">Signage</span>
+                <span class="tag">CNC</span>
+                <span class="tag">Production</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image"><img src="images/Work Pictures/WhatsApp Image 2026-06-13 at 6.56.06 PM.jpeg"></div>
+            <div class="project-content">
+              <h3>CNC Fabrication</h3>
+              <p>Acrylic/PVC/ACM project showing design, CAM setup, tooling, and result.</p>
+              <div class="tags">
+                <span class="tag">CNC</span>
+                <span class="tag">CAM</span>
+                <span class="tag">Fabrication</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="landing page/landing-page-thumbnail2.png">
+            </div>
+            <div class="project-content">
+              <h3>FlowDesk Landing Page Concept</h3>
+              <p>Responsive landing page design with HTML/CSS implementation.</p>
+              <div class="tags">
+                <span class="tag">Web</span>
+                <span class="tag">UI</span>
+                <span class="tag">HTML/CSS</span>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card">
+            <div class="project-image">
+              <img src="Real Estate Promo/Azurea Residences thumbnail.png">
+            </div>
+            <div class="project-content">
+              <h3>Real Estate Promo Kit</h3>
+              <p>Property flyer, Instagram posts, web banner, and sales presentation graphics.</p>
+              <div class="tags">
+                <span class="tag">Content</span>
+                <span class="tag">Layout</span>
+                <span class="tag">Marketing</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div class="about-photo">
+            <img src="images/profile experimental5.png">
+        </div>
+        <div class="about-text">
+          <div class="eyebrow">About</div>
+          <h2>Designer with real production experience.</h2>
+          <p>
+            I work across graphic design, print production, signage, CNC routing,
+            laser cutting, and digital layouts. My strength is creating visuals
+            that are not only presentable, but ready to be produced.
+          </p>
+
+          <p>
+            I am especially useful for businesses that need one person who understands
+            design files, materials, machines, and final output.
+          </p>
+
+          <div class="buttons">
+            <a href="#" class="btn primary">Download Resume</a>
+            <a href="#contact" class="btn">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <h2>Available for design and production roles.</h2>
+            <p>Graphic design, print, signage, production design, and web basics.</p>
+          </div>
+
+          <div class="buttons">
+            <a href="mailto:gilles.estradadiaz@gmail.com" class="btn primary">
+              Email Me
+            </a>
+            <a href="#" class="btn">Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Guillermo Estrada. Graphic Design / Print / Signage / Production.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guillermo Estrada | Graphic Designer</title>
+  <meta name="description" content="Graphic design, signage, and print production by Guillermo Estrada. Explore work across resort wayfinding, fabrication, vehicle graphics, and digital design.">
+  <link rel="icon" type="image/svg+xml" href="Images/favicon.svg" />
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-light: #20242d;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --line: #2e3440;
+      --accent: #cdedff;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      background: #2a2f3a;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(15, 17, 21, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .logo img {
+        background: none;
+        fill: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 96px 0 72px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      scale: 1.1;
+      background:
+        linear-gradient(to right, rgba(15, 17, 21, 1) 0%, rgba(15, 17, 21, 0.6) 60%, rgba(15, 17, 21, 0) 100%),
+        url("Images/Work Pictures/surf 3.png") right center / cover no-repeat var(--bg);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 0.95;
+      margin: 0 0 24px;
+      letter-spacing: -0.06em;
+      max-width: 900px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #d1d5db;
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .text-white {
+      color: #fff !important;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #07110d;
+      border-color: var(--accent);
+    }
+
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 72px;
+    }
+
+    .proof-item {
+      background: var(--panel);
+      padding: 22px;
+    }
+
+    .proof-item strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      max-width: 460px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category-card,
+    .project-card,
+    .skill-card,
+    .case-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .category-card {
+      padding: 22px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .category-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-image {
+      background:
+        linear-gradient(135deg, #2a2f3a, #161a22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      min-height: 300px;
+      max-height: 650px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      min-height: 300px;
+      max-height: 650px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 18px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .project-content p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--accent);
+      border: 1px solid rgba(253, 253, 253, 0.3);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .case-study {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .case-panel {
+      padding: 28px;
+    }
+
+    .case-panel h3 {
+      margin-top: 0;
+      font-size: 26px;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-list div {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    .case-list strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .case-list span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 24px;
+    }
+
+    .skill-card h3 {
+      margin-top: 0;
+    }
+
+    .skill-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .about-photo {
+      aspect-ratio: 1;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, #252a35, #151820);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .contact-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .contact-panel h2 {
+      margin: 0 0 10px;
+      font-size: 36px;
+      letter-spacing: -0.04em;
+    }
+
+    .contact-panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .proof,
+      .category-grid,
+      .project-grid,
+      .skills-grid,
+      .case-study,
+      .about,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .contact-panel {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="languages.css">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="es" href="es/index.html">
+</head>
+
+<body class="portfolio-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <a href="#main" class="logo"><img src="Images/Main Headline comb.svg" width="160" alt="Guillermo Estrada — home"></a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <nav class="language-switch" aria-label="Language"><span lang="en" aria-current="page">EN</span><span class="language-divider" aria-hidden="true">/</span><a href="es/index.html" lang="es" hreflang="es" aria-label="Ver esta página en español">ES</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Graphic design &amp; print production</div>
+
+        <h1>From design to production.</h1>
+
+        <p>
+          I bring ideas into print, signage, and digital experiences—with the hands-on production knowledge to see them through.
+        </p>
+
+        <div class="buttons">
+          <a href="#work" class="btn primary">Explore selected work <span aria-hidden="true">↗</span></a>
+          <a href="#contact" class="btn">Let’s talk <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Selected Work</div>
+            <h2>Design in the real world.</h2>
+          </div>
+          <p>From first layouts to finished installations: four projects in signage, fabrication, and print.</p>
+        </div>
+        <div class="project-grid">
+
+          <article class="project-card">
+            <a class="project-link" href="projects/dreams-onyx.html">
+              <div class="project-image">
+                <img src="Images/Selected Work/dreams-onyx/01.jpg" alt="Cream-and-gold directional monolith visualisation." loading="lazy" width="900" height="900">
+                <span class="image-kind">Design render</span>
+              </div>
+              <div class="project-content">
+                <p class="project-client">Dreams Onyx</p>
+                <h3>Wayfinding Signage</h3>
+                <p>A cream-and-gold wayfinding system, from design visualisations to installed resort signage.</p>
+                <div class="tags">
+                  <span class="tag">Wayfinding</span>
+                  <span class="tag">Artwork Preparation</span>
+                  <span class="tag">Sign Production</span>
+                </div>
+                <span class="view-project">View case study <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <a class="project-link" href="projects/pool-planet.html">
+              <div class="project-image">
+                <img src="Images/Selected Work/pool-planet/01.jpg" alt="Overall presentation of the vehicle graphics and roof-mounted advertising display." loading="lazy" width="900" height="900">
+                <span class="image-kind">Presentation mockup</span>
+              </div>
+              <div class="project-content">
+                <p class="project-client">Pool Planet</p>
+                <h3>Vehicle Graphics &amp; Mobile Advertising</h3>
+                <p>Vehicle graphics and a roof-mounted display, developed for a mobile advertising van.</p>
+                <div class="tags">
+                  <span class="tag">Vehicle Graphics</span>
+                  <span class="tag">Large Format</span>
+                  <span class="tag">Prepress</span>
+                </div>
+                <span class="view-project">View case study <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <a class="project-link" href="projects/catalonia.html">
+              <div class="project-image">
+                <img src="Images/Selected Work/catalonia/01.jpg" alt="Colour-coded directional arrows with restaurant names and pool directions." loading="lazy" width="900" height="900">
+                <span class="image-kind">Installed photograph</span>
+              </div>
+              <div class="project-content">
+                <p class="project-client">Catalonia</p>
+                <h3>Resort Signage &amp; Fabrication</h3>
+                <p>Directional signs, dimensional lettering, and illuminated displays for resort spaces.</p>
+                <div class="tags">
+                  <span class="tag">Signage</span>
+                  <span class="tag">Fabrication</span>
+                  <span class="tag">Wayfinding</span>
+                </div>
+                <span class="view-project">View case study <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <a class="project-link" href="projects/dreams-flora.html">
+              <div class="project-image">
+                <img src="Images/Selected Work/dreams-flora/01.jpg" alt="Seafood and meat buffet graphics presented in an interior setting." loading="lazy" width="900" height="900">
+                <span class="image-kind">Presentation mockup</span>
+              </div>
+              <div class="project-content">
+                <p class="project-client">Dreams Flora</p>
+                <h3>Buffet Signage &amp; Display Graphics</h3>
+                <p>Bilingual buffet signage combining illustrated food, chalkboard typography, and coordinated displays.</p>
+                <div class="tags">
+                  <span class="tag">Environmental Graphics</span>
+                  <span class="tag">Layout</span>
+                  <span class="tag">Print Production</span>
+                </div>
+                <span class="view-project">View case study <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="more-production">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">More Production Work</div>
+            <h2>Across materials and formats.</h2>
+          </div>
+          <p>A closer look at illuminated signs, vehicle graphics, window vinyl, and large-format print.</p>
+        </div>
+        <div class="production-grid">
+
+          <figure class="production-item">
+            <a href="Images/Selected Work/more-production/Blue Caribbean 1.png" target="_blank" rel="noopener" aria-label="Open Blue Caribbean image">
+              <img src="Images/Selected Work/more-production/Blue Caribbean 1.png" alt="Illuminated exterior signage · Installed photograph" loading="lazy" width="600" height="450">
+            </a>
+            <figcaption>
+              <strong>Blue Caribbean</strong>
+              <span>Illuminated exterior signage · Installed photograph</span>
+            </figcaption>
+          </figure>
+
+          <figure class="production-item">
+            <a href="Images/Selected Work/more-production/02.jpg" target="_blank" rel="noopener" aria-label="Open Secrets Tides image">
+              <img src="Images/Selected Work/more-production/02.jpg" alt="Food-trailer graphics · Presentation image" loading="lazy" width="600" height="450">
+            </a>
+            <figcaption>
+              <strong>Secrets Tides</strong>
+              <span>Food-trailer graphics · Presentation image</span>
+            </figcaption>
+          </figure>
+
+          <figure class="production-item">
+            <a href="Images/Selected Work/more-production/03.jpg" target="_blank" rel="noopener" aria-label="Open Royal Beach image">
+              <img src="Images/Selected Work/more-production/03.jpg" alt="Seasonal window graphics · Installed photograph" loading="lazy" width="600" height="450">
+            </a>
+            <figcaption>
+              <strong>Royal Beach</strong>
+              <span>Seasonal window graphics · Installed photograph</span>
+            </figcaption>
+          </figure>
+
+          <figure class="production-item">
+            <a href="Images/Selected Work/more-production/04.jpg" target="_blank" rel="noopener" aria-label="Open RE/MAX image">
+              <img src="Images/Selected Work/more-production/04.jpg" alt="Printed graphics on the production roll · Production photograph" loading="lazy" width="600" height="450">
+            </a>
+            <figcaption>
+              <strong>RE/MAX</strong>
+              <span>Printed graphics on the production roll · Production photograph</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="digital-work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Digital &amp; Marketing</div>
+            <h2>Brands on screen and in print.</h2>
+          </div>
+        </div>
+        <div class="digital-grid">
+
+          <article class="project-card">
+            <a class="project-link" href="landing-page.html">
+              <div class="project-image">
+                <img src="landing page/landing-page-thumbnail2.png" alt="FlowDesk landing page concept" loading="lazy">
+              </div>
+              <div class="project-content">
+                <p class="project-client">FlowDesk</p>
+                <h3>Landing Page Design</h3>
+                <p>A responsive product landing page, designed and built in HTML and CSS.</p>
+                <div class="tags">
+                  <span class="tag">Web</span>
+                  <span class="tag">UI</span>
+                  <span class="tag">HTML/CSS</span>
+                </div>
+                <span class="view-project">Explore concept <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <a class="project-link" href="projects/azurea-residences.html">
+            <div class="project-image">
+              <img src="Real Estate Promo/Azurea Residences thumbnail.png" alt="Azurea Residences real estate promotional kit" loading="lazy">
+            </div>
+            <div class="project-content">
+              <p class="project-client">Azurea Residences</p>
+              <h3>Brand Identity &amp; Campaign</h3>
+              <p>A coastal visual identity carried through property advertising, social content, and a web concept.</p>
+              <div class="tags">
+                <span class="tag">Content</span>
+                <span class="tag">Layout</span>
+                <span class="tag">Marketing</span>
+              </div>
+              <span class="view-project">Explore project <span aria-hidden="true">↗</span></span>
+            </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div class="about-photo">
+            <img src="Images/profile experimental5.png" alt="Guillermo Estrada" loading="lazy">
+        </div>
+        <div class="about-text">
+          <div class="eyebrow">About</div>
+          <h2>Design thinking.<br>Production experience.</h2>
+          <p>
+            I’m Guillermo Estrada, a graphic designer working across print, signage,
+            fabrication, and digital layouts. Experience with CNC routing, laser cutting,
+            and print production informs how I design—from the first file to the final finish.
+          </p>
+
+          <p>
+            I connect the visual decisions with the practical details: artwork,
+            materials, machine setup, and the way a finished piece will be used.
+          </p>
+
+          <div class="buttons">
+            <a href="mailto:gilles.estradadiaz@gmail.com?subject=Resume%20request" class="btn primary">Request my resume <span aria-hidden="true">↗</span></a>
+            <a href="#contact" class="btn">Get in touch <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="eyebrow">Get in touch</div>
+            <h2>Let’s make something that works.</h2>
+            <p>Have a project or a design and production role in mind? I’d like to hear about it.</p>
+          </div>
+
+          <div class="buttons">
+            <a href="mailto:gilles.estradadiaz@gmail.com" class="btn primary">
+              Start a conversation <span aria-hidden="true">↗</span>
+            </a>
+            <a href="mailto:gilles.estradadiaz@gmail.com?subject=Resume%20request" class="btn">Request resume <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Guillermo Estrada · Graphic design &amp; production
+    </div>
+  </footer>
+</body>
+</html>

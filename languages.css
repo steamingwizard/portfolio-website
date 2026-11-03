@@ -1,0 +1,35 @@
+/* Both languages share the same assets and presentation. */
+.language-switch{display:inline-flex;align-items:center;gap:9px;flex-shrink:0;font:600 11px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.06em}
+.language-switch a,.language-switch span[aria-current]{padding:7px 2px}
+.language-switch a{color:var(--muted,#bbc2ca);text-decoration:none;transition:color .2s}
+.language-switch span[aria-current]{color:var(--accent,var(--gold,#cdedff))}
+.language-divider{color:var(--muted,#bbc2ca);opacity:.5}
+.language-switch a:focus-visible{outline:2px solid var(--accent,var(--gold,#cdedff));outline-offset:4px;border-radius:2px}
+.language-switch a:hover{color:var(--accent,var(--gold,#cdedff))}
+.portfolio-page .nav-links{margin-left:auto}
+.portfolio-page .nav>.language-switch{margin-left:10px}
+.nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:26px}
+.case-page .case-nav .language-switch a{font-size:11px;color:var(--muted)}
+.case-page .case-nav .nav-actions>a{font-size:14px;color:var(--accent);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:6px;transition:color .2s,text-decoration-color .2s}
+.case-page .case-nav .nav-actions>a:hover,.case-page .case-nav .nav-actions>a:focus-visible{text-decoration-color:currentColor}
+.case-page .case-nav .language-switch a:hover{color:var(--accent)}
+html[lang="es"] .case-gallery figure>a::after{content:'Ver imagen completa ↗'}
+html[lang="es"] .portfolio-page h1{max-width:900px}
+html[lang="es"] .project-content h3{font-size:22px}
+html[lang="es"] .contact-panel .buttons{min-width:200px}
+@media(max-width:650px){
+  .portfolio-page .nav{height:auto;min-height:94px;flex-wrap:wrap;padding-block:14px;gap:8px 18px}
+  .portfolio-page .nav>.language-switch{margin-left:auto}
+  .portfolio-page .nav-links{order:3;width:100%;justify-content:center;margin-left:0;gap:26px}
+  .portfolio-page .nav-links a{padding:4px 0}
+  html:has(.portfolio-page){scroll-padding-top:125px}
+  .nav-actions{flex-direction:column;align-items:flex-end;gap:3px;padding-block:12px}
+  .case-page .case-nav .nav-actions>a{font-size:11px}
+  .case-page .case-nav .language-switch a{font-size:10px}
+  .language-switch{font-size:10px}
+  .masthead .back-link{font-size:9px}
+  html[lang="es"] .case-page h1{font-size:clamp(32px,7vw,45px)}
+  html[lang="es"] .intro-top{gap:14px}
+  html[lang="es"] .intro-top .eyebrow{max-width:65%}
+}
+@media(prefers-reduced-motion:reduce){.language-switch a{transition:none}}

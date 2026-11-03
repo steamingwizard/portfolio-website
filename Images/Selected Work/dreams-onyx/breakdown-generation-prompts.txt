@@ -1,0 +1,52 @@
+Built-in image_gen tool
+
+PROMPT 01
+Create ONE polished portfolio technical infographic, landscape 3:2, high resolution. This is sheet 01 of a coordinated pair. Input image is the user's original Dreams Onyx monolith material diagram and is the source of truth for the sign silhouette, branding, layout, colours and specifications. Recompose it into a spacious, precise editorial technical sheet, NOT a photo of a sheet.
+
+Title: "MATERIALS & FINISHES". Small top eyebrow: "DREAMS ONYX / WAYFINDING MONOLITH". Small sheet number "01".
+
+Pure white background, charcoal fine lines and text, cream and muted metallic gold from the original. Restrained modern Swiss typography with LARGE legible labels. Left 45%: large clean front elevation of the completed monolith preserving the original cream upper sign with curved angled top and the gold lower geometric motif; keep the actual Dreams Onyx identity and original wayfinding artwork, do not add destinations or alter the sign. Small discreet label "Finished appearance". Right 55%: four neatly aligned numbered material groups with colour swatches or accurate simple vector-like material silhouettes. Exact labels:
+"01 / FACE PANELS"
+"4 mm ACM / Dibond"
+"Upper and lower face panels"
+"02 / BACKGROUND & PATTERN"
+"ORACAL 651 / #082 Matte"
+"Cream background and lower geometric details"
+"03 / LOWER GOLD FIELD"
+"ORACAL 651 / #091 Gold"
+"Gold finish on the lower panel"
+"04 / LETTERING & SYMBOLS"
+"ORACAL 651 / #081 Gloss"
+"Wayfinding lettering, logo and directional symbols"
+
+Show small representative die-cut letter/arrow samples for group 04 and the source geometric motif for 02. Use subtle thin leader lines to the relevant finished sign regions, keep them non-overlapping and exact. Preserve the distinct #081 and #091 supplied references, do not merge or correct them based on outside information. Footer small text: "Material references supplied for this project. Colours shown are indicative." No engineering dimensions, no certification claims, no unprovided fabrication process, no hardware, no steel frame on this sheet. Make a beautiful professional production designer's portfolio plate with strong whitespace and readable information, without shadows that confuse layers.
+
+PROMPT 02
+Create ONE polished technical portfolio infographic, landscape 3:2, matching a companion sheet. Input image 1 is the user's original Dreams Onyx monolith construction diagram: it is the source of truth for physical components and geometry. Input image 2 is the generated MATERIALS & FINISHES companion: use ONLY its white background, charcoal text, hairline dividers, large modern sans-serif typography, cream/gold palette, header positions and editorial styling. Do not copy its material swatches. This is sheet 02.
+
+Exact header eyebrow "DREAMS ONYX / WAYFINDING MONOLITH". Title "CONSTRUCTION & ASSEMBLY". Top-right sheet number "02".
+
+Design a spacious, accurate COMPONENT BREAKDOWN, not an invented engineering assembly or attachment detail. Large central-left diagram occupying 65% of sheet: clean vector-like technical elevations of the original's physical components separated horizontally for clarity, linked with restrained dashed horizontal alignment guides. Keep every component vertical and proportions as source. Four numbered groups, left-to-right:
+01 two separate ACM face panels: curved angled tall upper panel and rectangular lower panel, subtle cream/gold finished face indication to connect to previous sheet.
+02 the original 25 mm PVC backing: outline frame matching curved angled upper silhouette plus the small horizontal lower pieces shown in reference. Do not convert it to a solid thick block or invent holes.
+03 the original 6 mm PVC edge strip: simple tall narrow vertical strip, no invented attachment or wrap geometry.
+04 the original 2-inch galvanised-steel internal frame: front elevation of tall rectangular open frame, one horizontal brace around lower-middle, base plate horizontal, plus a smaller side elevation matching source. No diagonal bracing, no invented fasteners, no bolts, no anchors, no weld symbols.
+
+Right 30% clear legend with large readable labels exactly:
+"01 / FACE PANELS"
+"4 mm ACM / Dibond"
+"Separate upper and lower panels"
+"02 / PVC BACKING"
+"25 mm PVC"
+"Profile and lower pieces shown separately"
+"03 / EDGE STRIP"
+"6 mm PVC"
+"Edge component"
+"04 / INTERNAL FRAME"
+"2-inch galvanised-steel profile"
+"Front and side elevations"
+
+Use tidy numbered callouts with short leader lines. Small discreet lower caption "Components separated for clarity". Footer exact: "Schematic based on supplied components. Not to scale. Fixings and overall dimensions are not specified."
+
+Constraints: Do NOT invent total height, width, total depth, profile wall thickness, materials, manufacturing process, adhesive, hardware, installation method or structural certification. The 2-inch figure describes the steel profile, NOT the total sign depth. Do not add a section-detail inset since connections have not been specified. No photos, no decorative tools, no watermark, no fake 3D exploded bolts, no unrelated branding. This is a calm precise technical plate to communicate the user's documented construction knowledge.
+
