@@ -175,6 +175,11 @@ a:focus-visible { outline: 3px solid var(--accent, #cdedff); outline-offset: 5px
   .portfolio-page .logo img { width:125px; }
   .portfolio-page .nav-links { gap:13px; font-size:12px; }
   .portfolio-page .hero { padding:64px 0 56px; }
+  .portfolio-page .hero::before {
+    scale:1;
+    background-position:center,78% center;
+    background-image:linear-gradient(to right,rgba(15,17,21,.96) 0%,rgba(15,17,21,.72) 46%,rgba(15,17,21,.25) 100%),url("Images/Work Pictures/surf 3.png");
+  }
   .portfolio-page .hero p { font-size:17px; }
   .portfolio-page .contact-panel { padding:26px; }
   .portfolio-page .contact-panel .buttons { width:100%; }

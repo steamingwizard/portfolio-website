@@ -7,7 +7,9 @@
 .language-switch a:focus-visible{outline:2px solid var(--accent,var(--gold,#cdedff));outline-offset:4px;border-radius:2px}
 .language-switch a:hover{color:var(--accent,var(--gold,#cdedff))}
 .portfolio-page .nav-links{margin-left:auto}
-.portfolio-page .nav>.language-switch{margin-left:10px}
+.header-utilities{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.linkedin-button svg{display:block;flex-shrink:0}
+.portfolio-page .nav>.header-utilities{margin-left:10px}
 .nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:26px}
 .case-page .case-nav .language-switch a{font-size:11px;color:var(--muted)}
 .case-page .case-nav .nav-actions>a{font-size:14px;color:var(--accent);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:6px;transition:color .2s,text-decoration-color .2s}
@@ -19,7 +21,7 @@ html[lang="es"] .project-content h3{font-size:22px}
 html[lang="es"] .contact-panel .buttons{min-width:200px}
 @media(max-width:650px){
   .portfolio-page .nav{height:auto;min-height:94px;flex-wrap:wrap;padding-block:14px;gap:8px 18px}
-  .portfolio-page .nav>.language-switch{margin-left:auto}
+  .portfolio-page .nav>.header-utilities{margin-left:auto}
   .portfolio-page .nav-links{order:3;width:100%;justify-content:center;margin-left:0;gap:26px}
   .portfolio-page .nav-links a{padding:4px 0}
   html:has(.portfolio-page){scroll-padding-top:125px}

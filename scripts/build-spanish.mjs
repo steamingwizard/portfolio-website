@@ -30,11 +30,14 @@ function switcher(page, spanish) {
   const es = relative(from, `es/${page}`);
   return `<nav class="language-switch" aria-label="${spanish ? 'Idioma' : 'Language'}">${spanish ? `<a href="${en}" lang="en" hreflang="en" aria-label="View this page in English">EN</a>` : '<span lang="en" aria-current="page">EN</span>'}<span class="language-divider" aria-hidden="true">/</span>${spanish ? '<span lang="es" aria-current="page">ES</span>' : `<a href="${es}" lang="es" hreflang="es" aria-label="Ver esta página en español">ES</a>`}</nav>`;
 }
+function utilities(page, spanish) {
+  return `<div class="header-utilities">${switcher(page, spanish)}</div>`;
+}
 function decorate(html, page, spanish) {
   const from = spanish ? `es/${page}` : page;
   const links = ['en', 'es'].map(lang => `  <link rel="alternate" hreflang="${lang}" href="${relative(from, lang === 'es' ? `es/${page}` : page)}">`).join('\n');
   html = html.replace('</head>', `  <link rel="stylesheet" href="${relative(from, 'languages.css')}">\n${links}\n</head>`);
-  const control = switcher(page, spanish);
+  const control = utilities(page, spanish);
   if (page === 'index.html') {
     html = html.replace(/(<nav class="nav-links"[\s\S]*?<\/nav>)/, `$1\n      ${control}`);
   } else if (page.endsWith('azurea-residences.html')) {
@@ -45,7 +48,8 @@ function decorate(html, page, spanish) {
   return html;
 }
 function clean(html) {
-  return html.replace(/\s*<nav class="language-switch"[\s\S]*?<\/nav>/g, '')
+  return html.replace(/\s*<div class="header-utilities">[\s\S]*?<\/nav><\/div>/g, '')
+    .replace(/\s*<nav class="language-switch"[\s\S]*?<\/nav>/g, '')
     .replace(/<div class="nav-actions">([\s\S]*?)<\/div>/g, '$1')
     .replace(/\s*<link rel="alternate" hreflang="(?:en|es)"[^>]*>/g, '')
     .replace(/\s*<link rel="stylesheet" href="[^\"]*languages\.css">/g, '');
